@@ -116,7 +116,7 @@ nav {
         gap: 12px;
         
         li::marker { content: none; }
-        li { height: fit-content; }
+        > li { position: relative; height: fit-content; padding-block: 5px; }
 
         a::before {
             content: " ";
@@ -131,12 +131,18 @@ nav {
 
         .navbarDropDown {
             position: absolute;
-            background: #fff8;
+            top: 100%;
+            background: rgb(226, 226, 226);
+            backdrop-filter: blur(50px);
             padding: 6px 20px 6px 10px;
             border-radius: 12px;
-            margin-top: 6px;
+            /* margin-top: 6px; */
+
+            flex-direction: column;
+            gap: 0;
 
             transform: translateY(15px);
+            pointer-events: none;
             opacity: 0;
             transition: 200ms;
             transition-delay: 400ms;
@@ -144,6 +150,7 @@ nav {
         li:has(.navbarDropDown):hover .navbarDropDown {
             transform: translateY(0);
             opacity: 1;
+            pointer-events: all;
             transition-delay: 0s;
         }
     }
