@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
+
+
+* {
+    margin: 0;
+}
+body {
+    background: url(/img/blurry-background.svg);
+    background-size: cover;
+
+    font-family: "Google Sans Flex", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #303030;
+
+    h1, h2, h3, h4, h5, b { color: #1b1b1b; }
+    
+    a {
+        text-decoration: none;
+        color: #1b1b1b;
+        font-weight: 600;
+        width: fit-content;
+        position: relative;
+        transition: 200ms;
+    }
+    a:hover { color: #4b4b4b }
+
+    .btn1 {
+        font-size: 22px;
+        font-weight: 900;
+        background: #1b1b1b;
+        padding: 12px 26px;
+        border-radius: 8px;
+        color: #ccc !important;
+        display: inline-block;
+        border: 4px solid #1b1b1b;
+    }
+    .btn1:hover { box-shadow: inset 0 0 0 100vw #fff1; }
+
+    .btn2 {
+        background: transparent;
+        color: #1b1b1b !important;
+    }
+    .btn2:hover {
+        box-shadow: none;
+        background: #1b1b1b;
+        color: #ccc !important;
+    }
+}
+
+nav {
+    position: fixed;
+    z-index: 100;
+    left: 50%; top: 70px;
+    transform: translateX(-50%);
+
+    width: 95vw;
+    max-width: 800px;
+    padding: 16px;
+    
+    background: #fff6;
+    border-radius: 8px;
+    backdrop-filter: blur(20px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo img {
+        width: 110px;
+        margin-bottom: -5px;
+    }
+
+    > ul {
+        padding: 0px;
+        margin-block: auto;
+        display: flex;
+        gap: 12px;
+        
+        li::marker { content: none; }
+        li { height: fit-content; }
+
+        a::before {
+            content: " ";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background: #4b4b4b;
+            bottom: 0; left: 0;
+            transition: inherit;
+        }
+        a:hover::before { width: 100%; }
+    }
+
+    .btn1 { display: flex; align-items: center; }
+}
+
+header::before {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+}
+#home header {
+    width: calc(100% - 70px);
+    padding: 55vh 0 5vh;
+    margin: 35px 35px 35px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 35px #0006;
+
+    video {
+        position: absolute;
+        top: 50%; left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        height: auto;
+        z-index: -1;
+    }
+
+    h1 {
+        position: relative;
+        font-size: 120px;
+        color: #fff;
+        
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        align-items: center;
+
+        .titleAppNames {
+            position: relative;
+            display: inline-block;
+            width: 583px;
+            height: 150px;
+
+            span {
+                position: absolute;
+                left: 0; top: 0;
+                transform: translateY(-50%);
+                opacity: 0;
+                pointer-events: none;
+            }
+            .titleAppNamesAni { animation: sliderAppNamesHeader 3s ease-in; }
+        }
+    }
+}
+@keyframes sliderAppNamesHeader {
+    0% {
+        transform: translateY(-50%);
+        opacity: 0;
+        pointer-events: none;
+    }
+    7.5% {
+        transform: translateY(0%);
+        opacity: 1;
+        pointer-events: all;
+    }
+    92.5% {
+        transform: translateY(0%);
+        opacity: 1;
+        pointer-events: all;
+    }
+    99.9% {
+        transform: translateY(50%);
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+article {
+    position: relative;
+    width: 95vw;
+    max-width: 1200px;
+    margin-inline: auto;
+    /* padding-block: 70px; */
+
+    .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 70px;
+        margin-block: 105px;
+
+        > * { width: 100%; }
+
+        img {
+            object-fit: cover;
+            border-radius: 16px;
+        }
+        .rowText {
+            margin-top: -6px;
+            h2 { font-size: 56px; }
+            p {
+                font-size: 22px;
+                margin: 15px 0 25px;
+            }
+            .btn1.btn2 { margin-left: 12px; }
+        }
+    }
+}
