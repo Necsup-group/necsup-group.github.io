@@ -8,6 +8,7 @@
 body {
     background: url(/img/blurry-background.svg);
     background-size: cover;
+    overflow-x: hidden;
 
     font-family: "Google Sans Flex", sans-serif;
     font-size: 18px;
@@ -24,7 +25,7 @@ body {
         position: relative;
         transition: 200ms;
     }
-    a:hover { color: #4b4b4b }
+    a:hover { color: #383838 }
 
     .btn1 {
         font-size: 22px;
@@ -47,13 +48,49 @@ body {
         background: #1b1b1b;
         color: #ccc !important;
     }
+
+    article {
+        position: relative;
+        width: 95vw;
+        max-width: 1200px;
+        margin-inline: auto;
+
+        .row.reversed { direction: rtl; }
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 70px;
+            margin-block: 105px;
+
+            > * { width: 100%; }
+
+            img {
+                object-fit: cover;
+                border-radius: 16px;
+            }
+            .rowText {
+                text-align: left;
+                margin-top: -6px;
+
+                h2 { font-size: 56px; }
+                p {
+                    font-size: 22px;
+                    margin: 15px 0 25px;
+                }
+                .btn1.btn2 { margin-left: 12px; }
+            }
+        }
+    }
 }
 
+nav.detachedNav { top: 15px; }
 nav {
     position: fixed;
     z-index: 100;
     left: 50%; top: 70px;
     transform: translateX(-50%);
+    transition: 200ms;
 
     width: 95vw;
     max-width: 800px;
@@ -72,7 +109,7 @@ nav {
         margin-bottom: -5px;
     }
 
-    > ul {
+    ul {
         padding: 0px;
         margin-block: auto;
         display: flex;
@@ -91,62 +128,158 @@ nav {
             transition: inherit;
         }
         a:hover::before { width: 100%; }
+
+        .navbarDropDown {
+            position: absolute;
+            background: #fff8;
+            padding: 6px 20px 6px 10px;
+            border-radius: 12px;
+            margin-top: 6px;
+
+            transform: translateY(15px);
+            opacity: 0;
+            transition: 200ms;
+            transition-delay: 400ms;
+        }
+        li:has(.navbarDropDown):hover .navbarDropDown {
+            transform: translateY(0);
+            opacity: 1;
+            transition-delay: 0s;
+        }
     }
 
     .btn1 { display: flex; align-items: center; }
 }
 
-header::before {
-    content: " ";
-    position: absolute;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
-}
-#home header {
-    width: calc(100% - 70px);
-    padding: 55vh 0 5vh;
-    margin: 35px 35px 35px;
-    border-radius: 12px;
+footer {
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 35px #0006;
+    background: #1b1b1b;
+    padding: 35px 35px 0 35px;
 
-    video {
-        position: absolute;
-        top: 50%; left: 0;
-        transform: translateY(-50%);
+    .footerContainer {
         width: 100%;
-        height: auto;
-        z-index: -1;
-    }
+        max-width: 1200px;
+        margin-inline: auto;
 
-    h1 {
-        position: relative;
-        font-size: 120px;
-        color: #fff;
-        
-        display: flex;
-        gap: 16px;
-        justify-content: center;
-        align-items: center;
+        img { max-width: 500px; }
 
-        .titleAppNames {
-            position: relative;
-            display: inline-block;
-            width: 583px;
-            height: 150px;
+        .footerInfo {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
 
-            span {
-                position: absolute;
-                left: 0; top: 0;
-                transform: translateY(-50%);
-                opacity: 0;
-                pointer-events: none;
+            border-top: 1px solid #fff2;
+            padding-top: 20px;
+            margin-top: 20px;
+
+            h3 { 
+                color: #eee;
+                font-size: 32px;
+                margin-bottom: 15px;
             }
-            .titleAppNamesAni { animation: sliderAppNamesHeader 3s ease-in; }
+            p, ul { color: #aaa; }
+            ul { padding-left: 20px; }
+
+            b, a { color: #ccc; }
+            a:hover { color: #eee; }
+
+            .disclaimer {
+                font-size: 10px;
+                margin-top: 4px;
+                padding-top: 4px;
+                width: fit-content;
+                padding-right: 16px;
+                border-top: solid 1px #fff2;
+                color: #fff4;
+            }
         }
+    }
+    .copyrights {
+        background: #222222;
+        margin: 35px -35px 0;
+        width: 100%;
+        padding: 18px 35px;
+        font-size: 16px;
+        color: #aaa;
+        text-align: center;
+    }
+}
+
+#home {
+    header::before {
+        content: " ";
+        position: absolute;
+        bottom: 0; left: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+    }
+    header {
+        padding: 55vh 10vh 5vh;
+        margin: 35px 35px 35px;
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 35px #0006;
+    
+        video {
+            position: absolute;
+            top: 50%; left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            height: auto;
+            z-index: -1;
+        }
+    
+        h1 {
+            position: relative;
+            font-size: 120px;
+            color: #fff;
+            
+            display: flex;
+            gap: 16px;
+            align-items: center;
+    
+            .titleAppNames {
+                position: relative;
+                display: inline-block;
+                width: 583px;
+                height: 150px;
+    
+                span {
+                    position: absolute;
+                    left: 0; top: 0;
+                    transform: translateY(-50%);
+                    opacity: 0;
+                    pointer-events: none;
+                }
+                .titleAppNamesAni { animation: sliderAppNamesHeader 3s ease-in; }
+            }
+        }
+    }
+    .progressUpdate {
+        padding-inline: 70px;
+        margin: 70px 0 -35px;
+    
+        .progressBar {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            background-color: #0002;
+            border-radius: 12px;
+    
+            display: flex;
+    
+            .progress { 
+                background: #2a2a2a;
+                display: inline-block;
+            }
+            p {
+                padding: 8px 14px;
+                width: fit-content;
+            }
+        }
+        .latestUpdate { padding: 8px 14px; }
     }
 }
 @keyframes sliderAppNamesHeader {
@@ -169,37 +302,5 @@ header::before {
         transform: translateY(50%);
         opacity: 0;
         pointer-events: none;
-    }
-}
-
-article {
-    position: relative;
-    width: 95vw;
-    max-width: 1200px;
-    margin-inline: auto;
-    /* padding-block: 70px; */
-
-    .row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        gap: 70px;
-        margin-block: 105px;
-
-        > * { width: 100%; }
-
-        img {
-            object-fit: cover;
-            border-radius: 16px;
-        }
-        .rowText {
-            margin-top: -6px;
-            h2 { font-size: 56px; }
-            p {
-                font-size: 22px;
-                margin: 15px 0 25px;
-            }
-            .btn1.btn2 { margin-left: 12px; }
-        }
     }
 }

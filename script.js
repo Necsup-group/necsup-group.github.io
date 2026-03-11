@@ -1,4 +1,3 @@
-
 window.addEventListener("load", () => {
     let introSpans = document.querySelectorAll("#home h1 span");
     let currentintroSpans = 0;
@@ -10,4 +9,9 @@ window.addEventListener("load", () => {
     }
     cycleHeaderAppName();
     setInterval(cycleHeaderAppName, 3000);
+})
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 0) document.querySelector("nav").classList.add("detachedNav");
+    else document.querySelector("nav").classList.remove("detachedNav");
 })
