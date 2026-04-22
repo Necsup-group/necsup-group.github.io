@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="title" content="Next up: Everything">
-  <meta property="og:title" content="Necsup, the network that has it all" />
-  <!-- <meta name="description" content="En ung Front-End sjel som brenner for å lage spennende design på nettsider og andre reklamer.">
-  <meta property="og:description" content="Lukas Okkenhaug er en front-end utvilker med nylig erfaring fra skolen, men også en del erfaring i arbeid."/> -->
-  <!-- <meta property="og:image" content="https://necsup.com/img/me-noBg.png"/> -->
+  <meta name="title" content="Necsup">
+  <meta property="og:title" content="Necsup, the all in one ecosystem" />
+  <meta name="description" content="A massive ecosystem of apps, all connected through one ID.">
+  <meta property="og:description" content="A massive ecosystem of apps, all connected through one ID."/>
+  <meta property="og:image" content="/img/stock/team-talking-big-office.jpg"/>
   <link rel="canonical" href="https://necsup.com" />
   <meta property="og:url" content="https://necsup.com/"/>
 
@@ -16,7 +16,7 @@
     {
       "prerender": [
         {
-          "urls": [ "/" ],
+          "urls": [ "/", "/id/" ],
           "eagerness": "moderate"
         }
       ]
@@ -26,14 +26,15 @@
   <script src="https://kit.fontawesome.com/d11723fac3.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/style.css">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
-  <link rel="manifest" href="img/favicons/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/img/favicons/site.webmanifest">
   <title>Necsup - Home</title>
 </head>
 <body id="home">
-  <nav></nav>
+  <nav class="navbar"></nav>
+  <nav class="phone-nav"></nav>
   <header>
     <video width="1920" height="1080" autoplay muted loop>
       <source src="/img/front-page-video.mp4" type="video/mp4">
@@ -41,19 +42,26 @@
     <h1>
       Necsup
       <div class="titleAppNames">
+        <span style="color: #144497">ID</span>
         <span style="color: rgb(248, 248, 83)">FITNESS</span>
-        <span style="color: rgb(248, 149, 83)">ID</span>
         <span style="color: rgb(83, 248, 226)">CONNECT</span>
       </div>
     </h1>
   </header>
   <article>
-    <div class="progressUpdate">
-      <div class="progressBar">
-        <span class="progress" style="width: 5%;"></span>
-        <p>We are 5% of the way to completing Necsup 1.0</p>
+    <div class="apps-intro">
+      <div class="app infoBox-dark">
+        <h3><span>V 1.0.0</span> Necsup ID</h3>
+        <p>
+          Necsup ID is the backbone of our ecosystem, providing a seamless single sign-on experience across every platform we build.
+          By centralizing your data in one secure hub, it allows our apps to communicate instantly with each other,
+          ensuring that your digital life stays connected and synchronized no matter where you are.
+        </p>
+        <a class="btn1 lightBtn" href="/id/">Read more</a>
       </div>
-      <p class="latestUpdate"><b>Latest Update</b>: Completed front page.</p>
+      <!-- <div class="appRow">
+
+      </div> -->
     </div>
     <div class="row">
       <img src="/img/stock/oslo-lake.jpg" width="800" height="350">
@@ -62,27 +70,24 @@
         <p>
           We at Necsup AS aspire to create the greatest ecosystem of apps ever created. 
           Every app from workout logging to our own social media platform will have the same branding, 
-          design philosophy and team working hard hours to perfect it. <br>
+          design philosophy and team working tirelessly to perfect it. <br>
         </p>
-        <a class="btn1" href="/">All apps</a>
-        <a class="btn1 btn2" href="/">Contact us</a>
+        <a class="btn1" href="/apps/">All apps</a>
+        <a class="btn1 btn2" href="/contact/">Contact us</a>
       </div>
     </div>
     <div class="features">
-      <div class="feature">
-        <h3><span>1</span> Unified identity</h3>
-        <p>Every app in our ecosystem centers around a single user identity handled by Necsup ID, 
-          allowing for seamless and efficient collaboration between all your favorite tools.</p>
+      <div class="feature infoBox-dark">
+        <h3><span>1</span> Identity</h3>
       </div>
-      <div class="feature">
-        <h3><span>0</span> Learning curve</h3>
-        <p>With our modern universal design philosophy, there is no friction between apps, 
-          which creates an intuitive and easy-to-understand UI for each and every experience we build.</p>
+      <div class="feature infoBox-dark">
+        <h3><span>5 Min</span> Setup time</h3>
       </div>
-      <div class="feature">
-        <h3><span>100%</span> Community driven</h3>
-        <p>Driven by our users, the Necsup community ensures we stay innovative and avoid 
-          common Silicon Valley traps like disconnected development, and platform enshittification.</p>
+      <div class="feature infoBox-dark">
+        <h3><span>24/7</span> Synchronized</h3>
+      </div>
+      <div class="feature infoBox-dark">
+        <h3><span>∞</span> Potential</h3>
       </div>
     </div>
     <div class="row reversed">
@@ -91,12 +96,12 @@
         <h2>Why we're different</h2>
         <p>
           But it's not like no one else has tried this before.
-          You don't have to look further than Veblex to see how this kind of idea can go incredibly wrong. <br><br>
-          The way we Differentiate ourselves is with our strong and capable team with experience in all fields, 
-          community feedback through the entire journey and a lust to create something innovative and future defining.
+          You don't have to look further train wreck that is <b>Veblex</b> to see how this kind of idea can go south. <br><br>
+          The way we differentiate ourselves is with our strong and capable team with experience in all fields, 
+          community feedback through the entire journey and a passion to create something innovative and future defining.
         </p>
-        <a class="btn1" href="/">About us</a>
-        <a class="btn1 btn2" href="/">Contact us</a>
+        <a class="btn1" href="/about/">About us</a>
+        <a class="btn1 btn2" href="/contact/">Contact us</a>
       </div>
     </div>
   </article>
